@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redev
+  labels:
+    app: redev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redev
+  template:
+    metadata:
+      labels:
+        app: redev
+    spec:
+      containers:
+      - name: redev
+        image: redev:1.14.2
+        ports:
+        - containerPort: 80
