@@ -4,4 +4,7 @@ WORKDIR /app
 
 COPY app/ .
 
-CMD ["go", "run", "main.go"]
+RUN go mod tidy && \
+    go build -o app
+
+CMD ["./app"]
