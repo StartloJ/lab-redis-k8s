@@ -6,13 +6,18 @@ import (
 	"log"
 
 	"github.com/go-redis/redis/v8"
+	"github.com/spf13/viper"
 )
 
 var ctx = context.Background()
 
+func init() {
+	viper.SetDefault("REDEV_ENDPOINT", "localhost:6379")
+	viper.SetDefault("REDEV_PASSWORD", "")
+}
+
 func main() {
 	log.Println("Start demo app")
-
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "P@ssw0rd", // no password set

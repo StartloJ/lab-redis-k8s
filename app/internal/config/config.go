@@ -1,4 +1,4 @@
-package internal
+package config
 
 import "github.com/spf13/viper"
 
@@ -7,6 +7,4 @@ func init() {
 	viper.SetEnvPrefix("redev")
 	viper.AutomaticEnv()
 
-	viper.SetDefault("REDEV_ENDPOINT", "localhost:6379")
-	viper.SetDefault("REDEV_PASSWORD", "")
 }
