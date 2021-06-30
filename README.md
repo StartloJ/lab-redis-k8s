@@ -23,6 +23,18 @@ $ helm repo update
 
 Deploy redis cluster with HELM
 ```bash
-$ helm upgrade --install redev -f values/redis.yaml bitnami/redis --version 14.6.2
+$ kubectl create namespace cache
+$ helm upgrade --namespace cache --install redev -f values/redis.yaml bitnami/redis --version 14.6.2
 ```
 
+## Use demo application for proof redis
+1. Use for container, you can pull images on 
+```bash
+$ docker pull dukecyber/demo-redev:0.1.0
+```
+
+2. Use app in kubernetes
+```bash
+$ kubectl create namespace demo
+$ kubectl apply -f values/deployment.yaml --namespace demo
+```
