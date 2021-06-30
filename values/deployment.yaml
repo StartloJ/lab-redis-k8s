@@ -21,6 +21,19 @@ spec:
         type: demo
         poc: redis
     spec:
+      initContainers:
+      - name: init
+        image: goodsmileduck/redis-cli
+        env:
+        - name: REDEV_ENDPOINT
+          value: "redisdev-master.cache.svc.cluster.local"
+        command:
+        - sh
+        - -c
+        - redis-cli
+        - -h $REDEV_ENDPOINT
+        - -p 6379 
+        - ping
       containers:
       - name: redev
         image: "dukecyber/demo-redev:0.1.0"
