@@ -40,10 +40,10 @@ spec:
         imagePullPolicy: "Always"
         env:
         - name: REDEV_ENDPOINT
-          value: "redisdev-master.cache.svc.cluster.local:6379"
+          value: "redev-cluster.cache.svc.cluster.local:6379"
         - name: REDEV_PASSWORD
           value: "P@ssw0rd"
         - name: REDEV_INIT_DB
           value: "0"
         - name: REDEV_ROUND
-          value: "30"
+          value: "300"
